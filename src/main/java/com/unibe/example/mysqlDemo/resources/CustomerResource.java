@@ -4,10 +4,7 @@ import com.unibe.example.mysqlDemo.controller.CustomerController;
 import com.unibe.example.mysqlDemo.dtos.CustomerDto;
 import com.unibe.example.mysqlDemo.resources.exeptions.CustomerAllreadyExistExeption;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -20,7 +17,7 @@ public class CustomerResource {
     @Autowired
     private CustomerController customerController;
 
-    @PutMapping
+    @PostMapping
     public void createCustomer(@Valid @RequestBody CustomerDto customerDto) throws CustomerAllreadyExistExeption {
         this.customerController.createCustomer(customerDto);
 
